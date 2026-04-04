@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skincare_app/core/api/api_provider.dart';
 import 'package:skincare_app/core/routes/app_router.dart';
 
 void main() {
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Feature First Navigation',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRouter.login,
+      initialRoute: AppRouter.splash,
       onGenerateRoute: AppRouter.generateRoute,
+      navigatorKey: navigatorKey,
     );
   }
 }

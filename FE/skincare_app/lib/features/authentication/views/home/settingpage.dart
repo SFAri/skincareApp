@@ -1,13 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:skincare_app/core/utils/date_formater.dart';
+import 'package:skincare_app/features/authentication/data/auth_repository.dart';
+import 'package:skincare_app/features/authentication/models/user.dart';
 import 'package:skincare_app/features/authentication/views/home/changepasswordpage.dart';
 import 'package:skincare_app/features/authentication/views/home/editprofilepage.dart';
-import 'package:skincare_app/features/survey/testpage.dart';
+import 'package:skincare_app/features/authentication/views/login/login.dart';
+import 'package:skincare_app/features/survey/views/testpage.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
 
   @override
+  State<SettingPage> createState() => _SettingPageState();
+}
+
+class _SettingPageState extends State<SettingPage> {
+  User? user;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUser();
+  }
+
+  Future<void> fetchUser() async {
+    final data = await AuthRepository().getMe();
+
+    setState(() {
+      user = data;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (user == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings"),
@@ -43,7 +71,7 @@ class SettingPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Nguyễn Văn A",
+                            user!.name ?? "Not loaded yet",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -51,7 +79,7 @@ class SettingPage extends StatelessWidget {
                           ),
                           SizedBox(height: 4),
                           Text(
-                            "nguyenvana@gmail.com",
+                            user!.email,
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],
@@ -119,47 +147,50 @@ class SettingPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Column(
-                children: [
-                  ListTile(
-                    tileColor: Color.fromARGB(255, 253, 249, 243),
-                    leading: Icon(
+              
+              child: (user!.answers == null || user!.answers!.isEmpty) 
+              ? const Padding(
+                padding: EdgeInsetsGeometry.all(20),
+                child: Center(
+                  child: Text(
+                    "Bạn chưa thực hiện khảo sát nào",
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                ),
+              ) 
+              
+              : ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: user!.answers!.length,
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemBuilder: (context, index) {
+                  final answer = user!.answers![index];
+
+                  return ListTile(
+                    tileColor: const Color.fromARGB(255, 253, 249, 243),
+                    leading: const Icon(
                       Icons.assignment_turned_in_outlined,
                       color: Colors.orange,
                     ),
-                    title: Text("Khảo sát loại da"),
-                    subtitle: Text("Da dầu • 12/08/2025"),
-                    trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                    onTap: () {
-                      // mở chi tiết kết quả khảo sát
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TestingPage(isResultMode: true),
-                        ),
-                      );
-                    },
-                  ),
-                  Divider(height: 1),
-                  ListTile(
-                    tileColor: Color.fromARGB(255, 253, 249, 243),
-                    leading: Icon(
-                      Icons.assignment_turned_in_outlined,
-                      color: Colors.orange,
+                    title: Text(answer.survey.title),
+                    subtitle: Text(
+                      "${answer.result.title} • ${formatDate(answer.createdAt)}",
                     ),
-                    title: Text("Khảo sát tone da"),
-                    subtitle: Text("Tone sáng • 20/08/2025"),
-                    trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                    trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TestingPage(isResultMode: true),
+                          builder: (context) => TestingPage(
+                            // isResultMode: true,
+                            surveyId: answer.survey.id,
+                          ),
                         ),
                       );
                     },
-                  ),
-                ],
+                  );
+                },
               ),
             ),
 
@@ -167,8 +198,19 @@ class SettingPage extends StatelessWidget {
 
             /// --- Đăng xuất ---
             ElevatedButton.icon(
-              onPressed: () {
+              onPressed: () async {
                 // xử lý logout
+                final success = await AuthRepository().logout();
+                if (success) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Logout failed")),
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.redAccent,

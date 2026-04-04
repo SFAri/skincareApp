@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 
 class CTextFormField extends StatefulWidget {
   const CTextFormField({
-    super.key, 
-    this.hintText = '', 
-    required this.labelText, 
+    super.key,
+    this.hintText = '',
+    required this.labelText,
     required this.prefixIcon,
     this.validator,
     this.isEmail = false,
     this.isPhone = false,
-    this.controller
+    this.controller,
+    this.onChange
   });
 
   final String hintText;
@@ -19,6 +20,7 @@ class CTextFormField extends StatefulWidget {
   final bool isEmail;
   final bool isPhone;
   final TextEditingController? controller;
+  final Function(String)? onChange;
 
   @override
   State<CTextFormField> createState() => _CTextFormFieldState();
@@ -29,6 +31,11 @@ class _CTextFormFieldState extends State<CTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
+      onChanged: (value) {
+        if (widget.onChange != null) {
+          widget.onChange!(value);
+        }
+      },
       validator: (value) {
         // automatic rule
         if (widget.isEmail) {
@@ -38,9 +45,11 @@ class _CTextFormFieldState extends State<CTextFormField> {
         }
 
         if (widget.isPhone) {
-          if (value == null || value.isEmpty) return 'Please enter your phone number';
+          if (value == null || value.isEmpty)
+            return 'Please enter your phone number';
           final phoneRegex = RegExp(r'^[0-9]{10}$');
-          if (!phoneRegex.hasMatch(value)) return 'Valid phone number must contain 10 digits';
+          if (!phoneRegex.hasMatch(value))
+            return 'Valid phone number must contain 10 digits';
         }
 
         // external validator

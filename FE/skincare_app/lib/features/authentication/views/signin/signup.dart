@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skincare_app/common/widgets/cpasswordfield.dart';
 import 'package:skincare_app/common/widgets/ctextformfield.dart';
 import 'package:skincare_app/core/routes/app_router.dart';
+import 'package:skincare_app/features/authentication/data/auth_repository.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -13,6 +14,9 @@ class SignUpScreen extends StatefulWidget {
 class SignUpScreenState extends State<SignUpScreen> {
   final _passwordController = TextEditingController();
   final _passwordConfirmController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _phoneController = TextEditingController();
+  final _emailController = TextEditingController();
 
   @override
   void initState() {
@@ -45,18 +49,21 @@ class SignUpScreenState extends State<SignUpScreen> {
                     hintText: 'User Name',
                     labelText: 'User Name *',
                     prefixIcon: Icon(Icons.person),
+                    controller: _nameController,
                   ),
                   CTextFormField(
                     hintText: 'Phone number',
                     labelText: 'Phone *',
                     prefixIcon: Icon(Icons.phone),
                     isPhone: true,
+                    controller: _phoneController,
                   ),
                   CTextFormField(
                     hintText: 'Email',
                     labelText: 'Email *',
                     prefixIcon: Icon(Icons.email),
                     isEmail: true,
+                    controller: _emailController,
                   ),
                   CustomPasswordField(
                     controller: _passwordController,
@@ -108,13 +115,26 @@ class SignUpScreenState extends State<SignUpScreen> {
                       ), // Set width to fill parent, and a fixed height
                       backgroundColor: Color.fromARGB(255, 210, 172, 142),
                     ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, AppRouter.home);
+                    onPressed: () async {
+                      final success = await AuthRepository().register(
+                        _emailController.text,
+                        _passwordController.text,
+                        _nameController.text,
+                        _phoneController.text,
+                      );
+                      if (success) {
+                        Navigator.pushReplacementNamed(context, AppRouter.home);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Register failed')),
+                        );
+                      }
+                      // Navigator.pushNamed(context, AppRouter.home);
                     },
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
-                        fontSize: 20, 
+                        fontSize: 20,
                         color: Colors.white,
                         // fontFamily: 'Dancing Script'
                       ),
@@ -132,7 +152,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                         'Or sign up with',
                         style: TextStyle(
                           color: Colors.grey.shade500,
-                          fontSize: 16
+                          fontSize: 16,
                         ),
                       ),
                       SizedBox(

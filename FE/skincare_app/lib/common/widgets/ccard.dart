@@ -6,12 +6,14 @@ class CCard extends StatelessWidget {
     this.title = '',
     this.subtitle = '',
     this.image = '',
+    this.buttonText = 'Do Test',
     required this.function,
   });
 
   final String title;
   final String subtitle;
   final String image;
+  final String buttonText;
   final VoidCallback function;
 
   @override
@@ -26,7 +28,12 @@ class CCard extends StatelessWidget {
         child: Column(
           spacing: 3,
           children: [
-            Text(title, style: TextStyle(fontSize: 18)),
+            Text(
+              title,
+              style: TextStyle(fontSize: 18, overflow: TextOverflow.ellipsis),
+              maxLines: 2,
+              textAlign: TextAlign.center,
+            ),
             Text(
               subtitle,
               style: TextStyle(
@@ -42,13 +49,21 @@ class CCard extends StatelessWidget {
               backgroundImage: NetworkImage(image),
               backgroundColor: Colors.white,
             ),
-            ElevatedButton(
-              onPressed: function,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 210, 172, 142),
-                foregroundColor: Colors.white,
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton(
+                    onPressed: function,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: buttonText == 'Do Test' ? Color.fromARGB(255, 210, 172, 142) : Colors.green[300],
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text(buttonText),
+                  ),
+                ),
               ),
-              child: Text('Do test'),
             ),
           ],
         ),

@@ -26,15 +26,9 @@ class CProductCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (_) => ProductDetail(id: id),
-        //   ),
-        // );
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Productdetailpage()),
+          MaterialPageRoute(builder: (context) => Productdetailpage(id: id)),
         );
       },
       child: Container(
