@@ -85,7 +85,7 @@ class _SearchPageState extends State<SearchPage> {
             Column(
               spacing: 10,
               children: [
-                SizedBox(height: 10,),
+                SizedBox(height: 10),
                 CTextFormField(
                   hintText: 'Search',
                   labelText: 'Search',
@@ -133,6 +133,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
+                if (products.isEmpty) Center(child: Text('No products found')),
                 Padding(
                   padding: EdgeInsetsGeometry.symmetric(horizontal: 0),
                   child: GridView.builder(

@@ -15,6 +15,7 @@ class CheckPage extends StatefulWidget {
 class _CheckPageState extends State<CheckPage> {
   final _ingredient1 = TextEditingController();
   final _ingredient2 = TextEditingController();
+  final _checkFormKey = GlobalKey<FormState>();
   CheckResult? data;
 
   Future<void> _checkInteraction(String first, String second) async {
@@ -38,52 +39,73 @@ class _CheckPageState extends State<CheckPage> {
         padding: EdgeInsets.all(10),
         color: Colors.white,
         child: SingleChildScrollView(
-          child: Column(
-            spacing: 10,
-            children: [
-              CTextFormField(
-                hintText: 'Name of ingredient 1',
-                labelText: 'Ingredient 1',
-                prefixIcon: Icon(Icons.info),
-                controller: _ingredient1,
-              ),
-              CTextFormField(
-                hintText: 'Name of ingredient 2',
-                labelText: 'Ingredient 2',
-                prefixIcon: Icon(Icons.info),
-                controller: _ingredient2,
-              ),
-              CButton(
-                text: 'Check interaction',
-                onPress: () =>
-                    _checkInteraction(_ingredient1.text, _ingredient2.text),
-              ),
-              if (data != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 20,
-                    children: [
-                      if (data!.level == InteractionLevel.GOOD)
-                        Icon(Icons.check_circle, color: Colors.green, size: 50),
-                      if (data!.level == InteractionLevel.WARNING)
-                        Icon(Icons.warning, color: Colors.orange, size: 50),
-                      if (data!.level == InteractionLevel.AVOID)
-                        Icon(Icons.dangerous, color: Colors.red, size: 50),
-                      Expanded(
-                        child: Text(
-                          data!.message,
-                          // maxLines: 3,
-                          // overflow: TextOverflow,
-                          style: TextStyle(fontSize: 30),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
+          child: Form(
+            key: _checkFormKey,
+            child: Column(
+              spacing: 10,
+              children: [
+                CTextFormField(
+                  hintText: 'Name of ingredient 1',
+                  labelText: 'Ingredient 1',
+                  prefixIcon: Icon(Icons.info),
+                  controller: _ingredient1,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter Ingredient 1";
+                    }
+                  },
                 ),
-            ],
+                CTextFormField(
+                  hintText: 'Name of ingredient 2',
+                  labelText: 'Ingredient 2',
+                  prefixIcon: Icon(Icons.info),
+                  controller: _ingredient2,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter Ingredient 2";
+                    }
+                    return null;
+                  },
+                ),
+                CButton(
+                  text: 'Check interaction',
+                  onPress: () {
+                    if (_checkFormKey.currentState!.validate()) {
+                      _checkInteraction(_ingredient1.text, _ingredient2.text);
+                    }
+                  },
+                ),
+                if (data != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 20,
+                      children: [
+                        if (data!.level == InteractionLevel.GOOD)
+                          Icon(
+                            Icons.check_circle,
+                            color: Colors.green,
+                            size: 50,
+                          ),
+                        if (data!.level == InteractionLevel.WARNING)
+                          Icon(Icons.warning, color: Colors.orange, size: 50),
+                        if (data!.level == InteractionLevel.AVOID)
+                          Icon(Icons.dangerous, color: Colors.red, size: 50),
+                        Expanded(
+                          child: Text(
+                            data!.message,
+                            // maxLines: 3,
+                            // overflow: TextOverflow,
+                            style: TextStyle(fontSize: 30),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

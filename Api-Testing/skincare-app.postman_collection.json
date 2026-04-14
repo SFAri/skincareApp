@@ -1,0 +1,1560 @@
+{
+  "info": {
+    "_postman_id": "27c2d89c-51d8-4427-886e-ccad27f15322",
+    "name": "skincare-app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41510788"
+  },
+  "item": [
+    {
+      "name": "USER",
+      "item": [
+        {
+          "name": "GET ALL",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n     \"option\": \"TESTTTTTT PATCH OPTION\", \"score\": 5 \n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n     \"option\": \"TESTTTTTT PATCH OPTION\", \"score\": 5 \n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/65122f85-54e2-4828-af30-ad00d06d6855",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "65122f85-54e2-4828-af30-ad00d06d6855"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"123456\",\n    \"name\": \"test1\",\n    \"dob\": \"2000-01-22\",\n    \"imageUrl\": \"https://tuoitre.vn/avatar-2-doi-chieu-1-nam-disney-cong-bo-lich-3-phim-star-wars-moi-20190508101140882.htm\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RESET PASSWORD",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ODUxZGVmZi1lZjUyLTRjMzUtODQzZS03YjdkM2VmMDVkNmYiLCJlbWFpbCI6InVzZXJAc2tpbmxhYi5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc3MjY0MzEwMCwiZXhwIjoxNzczMjQ3OTAwfQ.Y3IJP2A6FE1DK0EwbTRcOOjqLfmPNc7JEn7ev4kgxRI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldPassword\": \"user123\",\n    \"newPassword\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/me/password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "me",
+                "password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    // \"email\": \"test@gmail.com\",\n    \"name\": \"test PATCH\",\n    \"dob\": \"2000-01-23\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/65122f85-54e2-4828-af30-ad00d06d6855",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "65122f85-54e2-4828-af30-ad00d06d6855"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE Copy",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    // \"email\": \"test@gmail.com\",\n    \"name\": \"test PATCH\",\n    \"dob\": \"2000-01-23\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/65122f85-54e2-4828-af30-ad00d06d6855",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "65122f85-54e2-4828-af30-ad00d06d6855"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users/935620b6-da7c-4ca2-bbf1-6b98f6d4c6b7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "935620b6-da7c-4ca2-bbf1-6b98f6d4c6b7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SURVEY",
+      "item": [
+        {
+          "name": "SURVEY QUESTION",
+          "item": [
+            {
+              "name": "CREATE",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\n    {\n      \"question\": \"Da bạn cuối ngày như thế nào? (test post question)\",\n      \"options\": [\n        { \"option\": \"Căng và khô\", \"score\": 1 },\n        { \"option\": \"Bình thường\", \"score\": 2 },\n        { \"option\": \"Hơi nhờn\", \"score\": 3 },\n        { \"option\": \"Rất nhờn\", \"score\": 4 }\n      ]\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/questions",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "questions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"question\": \"Da bạn cuối ngày như thế nào? (test patch question)\"\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/questions/f52786c5-a462-46a0-ae50-0aa06ca9976c",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "questions",
+                    "f52786c5-a462-46a0-ae50-0aa06ca9976c"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/questions/9a627d15-db6e-437c-abf4-92c790ecdb76",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "questions",
+                    "9a627d15-db6e-437c-abf4-92c790ecdb76"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "SURVEY OPTION",
+          "item": [
+            {
+              "name": "CREATE",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n     \"option\": \"TESTTTTTT CREATE OPTION\", \"score\": 1 \n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/questions/9960ca7e-e223-4581-9024-a44f0d46b2ce",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "questions",
+                    "9960ca7e-e223-4581-9024-a44f0d46b2ce"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n     \"option\": \"TESTTTTTT PATCH OPTION\", \"score\": 5 \n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/questions/9960ca7e-e223-4581-9024-a44f0d46b2ce/7f5afb4a-f117-4406-8b31-978f2bdf9ede",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "questions",
+                    "9960ca7e-e223-4581-9024-a44f0d46b2ce",
+                    "7f5afb4a-f117-4406-8b31-978f2bdf9ede"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/questions/9960ca7e-e223-4581-9024-a44f0d46b2ce/7f5afb4a-f117-4406-8b31-978f2bdf9ede",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "questions",
+                    "9960ca7e-e223-4581-9024-a44f0d46b2ce",
+                    "7f5afb4a-f117-4406-8b31-978f2bdf9ede"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "SURVEY ANSWER",
+          "item": [
+            {
+              "name": "POST answer",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"answers\": [\n    {\n      \"questionId\": \"3f8eaa0c-dcf0-46b4-b04a-10dd508c3d4e\",\n      \"optionId\": \"b2a9ea17-0018-43ed-b1ce-66ad3ce680b5\"\n    },\n    {\n      \"questionId\": \"1b495764-5fcf-44db-8acc-95d0f19e69f7\",\n      \"optionId\": \"5e13e8c0-5ea4-42e7-96ba-4dcd9b805cd8\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/6834cdb7-e2d4-49fe-91bd-1751596f7008/submit",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "6834cdb7-e2d4-49fe-91bd-1751596f7008",
+                    "submit"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET ALL",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/survey-answers",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "survey-answers"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET ALL BY SURVEY ID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET DETAIL ANSWER BY USER",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YjUyNGZmNi0yNTFmLTQwYTMtYjg0OC1mY2U1MzBhNjc0NjAiLCJlbWFpbCI6InVzZXJAc2tpbmxhYi5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc3MzY1ODY4MiwiZXhwIjoxNzc0MjYzNDgyfQ.eQmZaHiMaC6TVkymUdOpiLr6IYDg5_-QJyquI7Fnn9o",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/survey-answers/a532a7ae-b17d-4d9e-9dc2-208e0e30a041",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "survey-answers",
+                    "a532a7ae-b17d-4d9e-9dc2-208e0e30a041"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET DETAIL ANSWER",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/survey-answers/3d41e990-8853-4d7e-846b-0a3829c69fd9",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "survey-answers",
+                    "3d41e990-8853-4d7e-846b-0a3829c69fd9"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "SURVEY RESULT",
+          "item": [
+            {
+              "name": "CREATE",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Da siêuuuuuuu dầu\",\n  \"minScore\":9,\n  \"maxScore\": 10,\n  \"description\": \"Bạn có làn da dầu, dễ bóng nhờn và có thể bị mụn nếu không chăm sóc đúng cách.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/results",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "results"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Da siêuuuuuuu dầu test patch\",\n  \"maxScore\": 12\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/results/7e20ebe6-ad58-4c51-aea0-969137fa1b1d",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "results",
+                    "7e20ebe6-ad58-4c51-aea0-969137fa1b1d"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE Copy",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/surveys/99388b50-bb74-45dc-8864-05a5dd74970b/results/7e20ebe6-ad58-4c51-aea0-969137fa1b1d",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "surveys",
+                    "99388b50-bb74-45dc-8864-05a5dd74970b",
+                    "results",
+                    "7e20ebe6-ad58-4c51-aea0-969137fa1b1d"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "GET ALL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/surveys",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "surveys"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET DETAIL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/surveys/a532a7ae-b17d-4d9e-9dc2-208e0e30a041",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "surveys",
+                "a532a7ae-b17d-4d9e-9dc2-208e0e30a041"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET DETAIL Copy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/surveys/a532a7ae-b17d-4d9e-9dc2-208e0e30a041",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "surveys",
+                "a532a7ae-b17d-4d9e-9dc2-208e0e30a041"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Khảo sát xác định loại da tesstttttt\",\n  \"description\": \"Trả lời các câu hỏi để biết loại da của bạn\",\n  \"questions\": [\n    {\n      \"question\": \"Sau khi rửa mặt 30 phút, da bạn cảm thấy thế nào?\",\n      \"options\": [\n        { \"option\": \"Căng và khô\", \"score\": 1 },\n        { \"option\": \"Bình thường\", \"score\": 2 },\n        { \"option\": \"Hơi nhờn\", \"score\": 3 },\n        { \"option\": \"Rất nhờn\", \"score\": 4 }\n      ]\n    },\n    {\n      \"question\": \"Lỗ chân lông của bạn như thế nào?\",\n      \"options\": [\n        { \"option\": \"Rất nhỏ\", \"score\": 1 },\n        { \"option\": \"Nhỏ\", \"score\": 2 },\n        { \"option\": \"To\", \"score\": 3 },\n        { \"option\": \"Rất to\", \"score\": 4 }\n      ]\n    }\n  ],\n  \"results\": [\n    {\n      \"title\": \"Da khô\",\n      \"description\": \"Da bạn thuộc loại da khô, cần cấp ẩm thường xuyên.\",\n      \"minScore\": 2,\n      \"maxScore\": 3\n    },\n    {\n      \"title\": \"Da thường\",\n      \"description\": \"Da bạn cân bằng và khỏe mạnh.\",\n      \"minScore\": 4,\n      \"maxScore\": 5\n    },\n    {\n      \"title\": \"Da dầu\",\n      \"description\": \"Da bạn tiết nhiều dầu, nên chú ý làm sạch.\",\n      \"minScore\": 6,\n      \"maxScore\": 8\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/surveys",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "surveys"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"New Survey Title\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/surveys/3dc921c6-2e71-48c9-aac7-e3265e2dc6e5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "surveys",
+                "3dc921c6-2e71-48c9-aac7-e3265e2dc6e5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/surveys/1919e26f-f6f3-43b4-b0ce-8a30eb69519d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "surveys",
+                "1919e26f-f6f3-43b4-b0ce-8a30eb69519d"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PRODUCT",
+      "item": [
+        {
+          "name": "GET ALL",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\n//   \"title\": \"Khảo sát TEST\",\n//   \"questions\": [\n//     {\n//       \"question\": \"Da bạn cuối ngày như thế nào?\",\n//       \"options\": [\n//         \"Đổ dầu nhiều\",\n//         \"Bình thường\",\n//         \"Khô căng\"\n//       ]\n//     }\n//   ]\n// }\n{\n  \"title\": \"Khảo sát xác định loại da\",\n  \"description\": \"Trả lời các câu hỏi để biết loại da của bạn\",\n  \"questions\": [\n    {\n      \"question\": \"Sau khi rửa mặt 30 phút, da bạn cảm thấy thế nào?\",\n      \"options\": [\n        { \"option\": \"Căng và khô\", \"score\": 1 },\n        { \"option\": \"Bình thường\", \"score\": 2 },\n        { \"option\": \"Hơi nhờn\", \"score\": 3 },\n        { \"option\": \"Rất nhờn\", \"score\": 4 }\n      ]\n    },\n    {\n      \"question\": \"Lỗ chân lông của bạn như thế nào?\",\n      \"options\": [\n        { \"option\": \"Rất nhỏ\", \"score\": 1 },\n        { \"option\": \"Nhỏ\", \"score\": 2 },\n        { \"option\": \"To\", \"score\": 3 },\n        { \"option\": \"Rất to\", \"score\": 4 }\n      ]\n    }\n  ],\n  \"results\": [\n    {\n      \"title\": \"Da khô\",\n      \"description\": \"Da bạn thuộc loại da khô, cần cấp ẩm thường xuyên.\",\n      \"minScore\": 2,\n      \"maxScore\": 3\n    },\n    {\n      \"title\": \"Da thường\",\n      \"description\": \"Da bạn cân bằng và khỏe mạnh.\",\n      \"minScore\": 4,\n      \"maxScore\": 5\n    },\n    {\n      \"title\": \"Da dầu\",\n      \"description\": \"Da bạn tiết nhiều dầu, nên chú ý làm sạch.\",\n      \"minScore\": 6,\n      \"maxScore\": 8\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/15239819-58f6-42bf-bf8d-fef0b99488cf",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "15239819-58f6-42bf-bf8d-fef0b99488cf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"title\": \"Routine cho da dầu mụn test pATCH\"\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn testtt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routines/b2a6edc4-0078-483a-a1eb-90e2cef33085",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routines",
+                "b2a6edc4-0078-483a-a1eb-90e2cef33085"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Gentle Cleanser testtttt post\",\n  \"ingredient\": \"Glycerin, Ceramide\",\n  \"brand\": \"SkinLab\",\n  \"imageUrl\": \"https://example.com/image.jpg\",\n  \"shopeeUrl\": \"https://shopee.vn/abc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Gentle Cleanser test patch\",\n  \"brand\": \"SkinLab\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products/6559cdfe-0b1a-4e06-b9b4-0e0a5808d9c9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "6559cdfe-0b1a-4e06-b9b4-0e0a5808d9c9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SEARCH",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/search?q=ty&minPrice=100000&maxPrice=500000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "ty"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "100000"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "500000"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ROUTINE",
+      "item": [
+        {
+          "name": "GET ALL",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\n//   \"title\": \"Khảo sát TEST\",\n//   \"questions\": [\n//     {\n//       \"question\": \"Da bạn cuối ngày như thế nào?\",\n//       \"options\": [\n//         \"Đổ dầu nhiều\",\n//         \"Bình thường\",\n//         \"Khô căng\"\n//       ]\n//     }\n//   ]\n// }\n{\n  \"title\": \"Khảo sát xác định loại da\",\n  \"description\": \"Trả lời các câu hỏi để biết loại da của bạn\",\n  \"questions\": [\n    {\n      \"question\": \"Sau khi rửa mặt 30 phút, da bạn cảm thấy thế nào?\",\n      \"options\": [\n        { \"option\": \"Căng và khô\", \"score\": 1 },\n        { \"option\": \"Bình thường\", \"score\": 2 },\n        { \"option\": \"Hơi nhờn\", \"score\": 3 },\n        { \"option\": \"Rất nhờn\", \"score\": 4 }\n      ]\n    },\n    {\n      \"question\": \"Lỗ chân lông của bạn như thế nào?\",\n      \"options\": [\n        { \"option\": \"Rất nhỏ\", \"score\": 1 },\n        { \"option\": \"Nhỏ\", \"score\": 2 },\n        { \"option\": \"To\", \"score\": 3 },\n        { \"option\": \"Rất to\", \"score\": 4 }\n      ]\n    }\n  ],\n  \"results\": [\n    {\n      \"title\": \"Da khô\",\n      \"description\": \"Da bạn thuộc loại da khô, cần cấp ẩm thường xuyên.\",\n      \"minScore\": 2,\n      \"maxScore\": 3\n    },\n    {\n      \"title\": \"Da thường\",\n      \"description\": \"Da bạn cân bằng và khỏe mạnh.\",\n      \"minScore\": 4,\n      \"maxScore\": 5\n    },\n    {\n      \"title\": \"Da dầu\",\n      \"description\": \"Da bạn tiết nhiều dầu, nên chú ý làm sạch.\",\n      \"minScore\": 6,\n      \"maxScore\": 8\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routines",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routines"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/routines/88d092c7-8a40-43bf-892a-69daeb4c3267",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routines",
+                "88d092c7-8a40-43bf-892a-69daeb4c3267"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Routine cho da dầu mụn test\",\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn\",\n  \"steps\": [\n    {\n      \"name\": \"Tẩy trang\",\n      \"description\": \"Loại bỏ lớp makeup và bụi bẩn\",\n      \"order\": 1,\n      \"time\": \"NIGHT\",\n      \"products\": [\n        // {\n        //   \"productId\": \"product-uuid-1\",\n        //   \"priority\": 1,\n        //   \"note\": \"Dành cho da nhạy cảm\"\n        // }\n      ]\n    },\n    {\n      \"name\": \"Rửa mặt\",\n      \"description\": \"Làm sạch sâu lỗ chân lông\",\n      \"order\": 2,\n      \"time\": \"NIGHT\",\n      \"products\": [\n        // {\n        //   \"productId\": \"product-uuid-2\",\n        //   \"priority\": 1\n        // },\n        // {\n        //   \"productId\": \"product-uuid-3\",\n        //   \"priority\": 2\n        // }\n      ]\n    },\n    {\n      \"name\": \"Serum trị mụn\",\n      \"description\": \"Giảm viêm và gom cồi mụn\",\n      \"order\": 3,\n      \"time\": \"NIGHT\",\n      \"products\": [\n        // {\n        //   \"productId\": \"product-uuid-4\",\n        //   \"priority\": 1,\n        //   \"note\": \"Có thể dùng xen kẽ\"\n        // }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routines",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routines"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"title\": \"Routine cho da dầu mụn test pATCH\"\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn testtt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routines/b55a6eee-c3c3-404f-9738-6029f3f4ad3e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routines",
+                "b55a6eee-c3c3-404f-9738-6029f3f4ad3e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"title\": \"Routine cho da dầu mụn test pATCH\"\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn testtt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products/6559cdfe-0b1a-4e06-b9b4-0e0a5808d9c9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "6559cdfe-0b1a-4e06-b9b4-0e0a5808d9c9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SAVE ROUTINE",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YjUyNGZmNi0yNTFmLTQwYTMtYjg0OC1mY2U1MzBhNjc0NjAiLCJlbWFpbCI6InVzZXJAc2tpbmxhYi5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc3MzgxNzA2NSwiZXhwIjoxNzc0NDIxODY1fQ.c5JWb5fEIQffDmFcLoSuOQUMavk8OtVwZoBpRbkkn5o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/user-routines/3cd96b5b-6c2e-48f2-b195-a47785839d80",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "user-routines",
+                "3cd96b5b-6c2e-48f2-b195-a47785839d80"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UNSAVE ROUTINE",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YjUyNGZmNi0yNTFmLTQwYTMtYjg0OC1mY2U1MzBhNjc0NjAiLCJlbWFpbCI6InVzZXJAc2tpbmxhYi5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc3MzgxNzA2NSwiZXhwIjoxNzc0NDIxODY1fQ.c5JWb5fEIQffDmFcLoSuOQUMavk8OtVwZoBpRbkkn5o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/user-routines/3cd96b5b-6c2e-48f2-b195-a47785839d80",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "user-routines",
+                "3cd96b5b-6c2e-48f2-b195-a47785839d80"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "STEP",
+      "item": [
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Kem dưỡng ẩm 2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/steps",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "steps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Kem dưỡng ẩm 2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/steps/fd378644-5b83-407c-9816-30aeae07588b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "steps",
+                "fd378644-5b83-407c-9816-30aeae07588b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"title\": \"Routine cho da dầu mụn test pATCH\"\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn testtt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/steps/dd7f1f9a-732c-4ff5-908d-439a8d16c1a7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "steps",
+                "dd7f1f9a-732c-4ff5-908d-439a8d16c1a7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ROUTINE STEP",
+      "item": [
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"routineId\": \"19d0a71c-f4ad-439e-80d6-efdf491dfa67\",\n  \"stepName\": \"Toner\",\n  \"description\": \"Cân bằng da\",\n  \"order\": 2,\n  \"time\": \"MORNING\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routine-steps",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routine-steps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"stepName\": \"Rửa mặt\"\n  \"description\": \"Làm sạch dầu thừa\",\n  \"order\": 1,\n  \"time\": \"MORNING\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routine-steps/8d67a27a-597e-4ad5-aa78-ef283657d874",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routine-steps",
+                "8d67a27a-597e-4ad5-aa78-ef283657d874"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"title\": \"Routine cho da dầu mụn test pATCH\"\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn testtt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/routine-steps/8d67a27a-597e-4ad5-aa78-ef283657d874",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "routine-steps",
+                "8d67a27a-597e-4ad5-aa78-ef283657d874"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "STEP PRODUCT",
+      "item": [
+        {
+          "name": "CREATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"routineStepId\": \"9655f66a-58f4-4eee-96da-846b127682e6\",\n    \"productId\": \"1f760784-a295-499a-88c4-5c652135003e\",\n    \"note\": \"Làm sạch nhưng cân bằng độ ẩm da\",\n    \"priority\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/step-product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "step-product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"note\": \"Làm sạch nhưng cân bằng độ ẩm da patch\",\n    \"priority\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/step-product/0b5d0a6a-8b30-45f3-943b-ec38ec98e6a0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "step-product",
+                "0b5d0a6a-8b30-45f3-943b-ec38ec98e6a0"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"title\": \"Routine cho da dầu mụn test pATCH\"\n  \"desc\": \"Routine chăm sóc da buổi tối dành cho da dầu mụn testtt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/step-product/0b5d0a6a-8b30-45f3-943b-ec38ec98e6a0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "step-product",
+                "0b5d0a6a-8b30-45f3-943b-ec38ec98e6a0"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AUTH",
+      "item": [
+        {
+          "name": "LOGIN",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"user@skinlab.com\",\n    \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ME",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YjUyNGZmNi0yNTFmLTQwYTMtYjg0OC1mY2U1MzBhNjc0NjAiLCJlbWFpbCI6InVzZXJAc2tpbmxhYi5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc3Mzc1MjQ0NywiZXhwIjoxNzc0MzU3MjQ3fQ.4gmGxZrRcI62OT9AByEsU_Qvho-AwQhOBL3F_F3cWqQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"123456\",\n    \"name\": \"test1\",\n    \"dob\": \"2000-01-22\",\n    \"imageUrl\": \"https://tuoitre.vn/avatar-2-doi-chieu-1-nam-disney-cong-bo-lich-3-phim-star-wars-moi-20190508101140882.htm\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Interaction",
+      "item": [
+        {
+          "name": "check-interaction",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "GET ALL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/check-interaction/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "check-interaction",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "first",
+                  "value": "Retinol",
+                  "disabled": true
+                },
+                {
+                  "key": "second",
+                  "value": "AHA",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

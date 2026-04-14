@@ -117,7 +117,7 @@ class LoginScreenState extends State<LoginScreen> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your email to receive recovering password';
+                              return 'Please enter your email';
                             }
                             final bool emailValid = RegExp(
                               r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$",
@@ -178,14 +178,14 @@ class LoginScreenState extends State<LoginScreen> {
                                 _passwordController.text,
                               );
 
-                              if (success) {
+                              if (success.isSuccess) {
                                 Navigator.pushReplacementNamed(
                                   context,
                                   AppRouter.home,
                                 );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text("Login failed")),
+                                  SnackBar(content: Text(success.error ?? "Login failed, wrong password or email.")),
                                 );
                               }
                             }

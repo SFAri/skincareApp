@@ -7,30 +7,29 @@ import 'auth_api.dart';
 class AuthRepository {
   final AuthApi api = AuthApi();
 
-  Future<bool> login(String email, String password) async {
+  Future<ApiResult<bool>> login(String email, String password) async {
     try {
-      // final res = await api.login(email, password);
-      // final token = res.data["accessToken"] as String?;
-      // if (token == null || token.isEmpty) return false;
-
-      // final prefs = await SharedPreferences.getInstance();
-      // await prefs.setString("token", token);
-      // return true;
       final res = await api.login(email, password);
 
       final accessToken = res.data["accessToken"] as String?;
       final refreshToken = res.data["refreshToken"] as String?;
 
-      if (accessToken == null || refreshToken == null) return false;
+      if (accessToken == null || refreshToken == null) {
+        return ApiResult(data: false, error: "Invalid response from server");
+      }
 
       final prefs = await SharedPreferences.getInstance();
 
       await prefs.setString("accessToken", accessToken);
       await prefs.setString("refreshToken", refreshToken);
 
-      return true;
+      return ApiResult(data: true, message: "Login successful!");
     } catch (e) {
-      return false;
+      if (e is DioException) {
+        final message = e.response?.data["message"] ?? "Login failed";
+        return ApiResult(data: false, error: message);
+      }
+      return ApiResult(data: false, error: "Something went wrong");
     }
   }
 
