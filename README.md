@@ -148,7 +148,7 @@ GET /api/products/search?q=retinol&page=1&limit=10
 
 ## 🙌 Author
 
-👤 Your Name
+👤 Dinh Ngoc Thuy Tien
 📧 [thuytientien23@gmail.com](mailto:thuytientien23@gmail.com)
 🔗 https://github.com/SFAri
 
